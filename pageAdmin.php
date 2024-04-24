@@ -60,7 +60,6 @@ if (isset($_GET['logout'])) {
         <aside class="menu-sidebar2">
             <div class="logo">
                 <a href="#">
-                    <img src="images/icon/OIP.jpg" alt="Cool Admin" />
                 </a>
             </div>
             <div class="menu-sidebar2__content js-scrollbar1">
@@ -100,7 +99,7 @@ if (isset($_GET['logout'])) {
                         <div class="header-wrap2">
                             <div class="logo d-block d-lg-none">
                                 <a href="#">
-                                    <img src="images/icon/OIP.png" alt="CoolAdmin" />
+                
                                 </a>
                             </div>
                             <div class="header-button2">

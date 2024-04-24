@@ -1,38 +1,38 @@
-<?php 
+<?php
 
-    include "config/controller.php";
-    session_start();
-    $lg = new lsp();
-    
-    if($lg->sessionCheck() == "true"){
-        if($_SESSION['level'] == "Admin"){
-            header("location:pageAdmin.php");
-        }else if($_SESSION['level'] == "Manager"){
-            header("location:pageManager.php");
-        }else if($_SESSION['level'] == "Kasir"){
-            header("location:pageKasir.php");
-        }
+include "config/controller.php";
+session_start();
+$lg = new lsp();
+
+if ($lg->sessionCheck() == "true") {
+    if ($_SESSION['level'] == "Admin") {
+        header("location:pageAdmin.php");
+    } else if ($_SESSION['level'] == "Manager") {
+        header("location:pageManager.php");
+    } else if ($_SESSION['level'] == "Kasir") {
+        header("location:pageKasir.php");
     }
+}
 
-    if (isset($_POST['btnLogin'])) {
-        $username = $_POST['username'];
-        $password = $_POST['password'];
-        if ($response = $lg->login($username, $password)) {
-            if ($response['response'] == "positive") {
-                $_SESSION['username'] = $_POST['username'];
-                $_SESSION['level'] = $response['level'];
-                if ($response['level'] == "Admin") {
-                    $response = $lg->redirect("pageAdmin.php");
-                }else if($response['level'] == "Manager"){
-                    $response = $lg->redirect("pageManager.php");
-                }else if ($response['level'] == "Kasir") {
-                    $response = $lg->redirect("pageKasir.php");
-                }
+if (isset($_POST['btnLogin'])) {
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+    if ($response = $lg->login($username, $password)) {
+        if ($response['response'] == "positive") {
+            $_SESSION['username'] = $_POST['username'];
+            $_SESSION['level'] = $response['level'];
+            if ($response['level'] == "Admin") {
+                $response = $lg->redirect("pageAdmin.php");
+            } else if ($response['level'] == "Manager") {
+                $response = $lg->redirect("pageManager.php");
+            } else if ($response['level'] == "Kasir") {
+                $response = $lg->redirect("pageKasir.php");
             }
         }
     }
+}
 
- ?>
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -80,7 +80,7 @@
                     <div class="login-content">
                         <div class="login-logo">
                             <a href="#">
-                                <img src="images/icon/logo.png" alt="CoolAdmin">
+                                <img src="images/icon/inventory.png" alt="CoolAdmin">
                             </a>
                         </div>
                         <div class="login-form">
